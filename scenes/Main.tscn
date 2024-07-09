@@ -1,0 +1,198 @@
+[gd_scene load_steps=3 format=3 uid="uid://7owrl0xxj5qk"]
+
+[ext_resource type="Script" path="res://script/Main.gd" id="1_t32cm"]
+[ext_resource type="Script" path="res://script/FPSCounter.gd" id="2_m6wcs"]
+
+[node name="Main" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_t32cm")
+
+[node name="Level" type="Node2D" parent="."]
+unique_name_in_owner = true
+process_mode = 1
+editor_description = "Can make this its own scene if we want"
+
+[node name="Label" type="Label" parent="Level"]
+offset_left = 488.0
+offset_top = 219.0
+offset_right = 663.0
+offset_bottom = 242.0
+text = "GAMEPLAY GOES HERE"
+
+[node name="MenuLayer" type="CanvasLayer" parent="."]
+
+[node name="MenuBack" type="ColorRect" parent="MenuLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.235294, 0.2, 1)
+metadata/_edit_lock_ = true
+
+[node name="MainMenu" type="Control" parent="MenuLayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuLayer/MainMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MenuLayer/MainMenu/VBoxContainer"]
+layout_mode = 2
+text = "SSJ24-July"
+
+[node name="NewGame" type="Button" parent="MenuLayer/MainMenu/VBoxContainer"]
+layout_mode = 2
+text = "New Game"
+
+[node name="Continue" type="Button" parent="MenuLayer/MainMenu/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Continue"
+
+[node name="Options" type="Button" parent="MenuLayer/MainMenu/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="MenuLayer/MainMenu/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="LevelPauseMenu" type="Control" parent="MenuLayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuLayer/LevelPauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MenuLayer/LevelPauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Pause
+"
+
+[node name="Back" type="Button" parent="MenuLayer/LevelPauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Unpause
+"
+
+[node name="ReturnToMenu" type="Button" parent="MenuLayer/LevelPauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Return to Menu"
+
+[node name="Options" type="Button" parent="MenuLayer/LevelPauseMenu/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="OptionsMenu" type="Control" parent="MenuLayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuLayer/OptionsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -20.0
+offset_right = 31.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MenuLayer/OptionsMenu/VBoxContainer"]
+layout_mode = 2
+text = "Options
+"
+
+[node name="Back" type="Button" parent="MenuLayer/OptionsMenu/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="ScreenShake" type="CheckButton" parent="MenuLayer/OptionsMenu/VBoxContainer"]
+layout_mode = 2
+text = "Screen Shake"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuLayer/OptionsMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="MusicSlider" type="HSlider" parent="MenuLayer/OptionsMenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MenuLayer/OptionsMenu/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Music
+"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MenuLayer/OptionsMenu/VBoxContainer"]
+layout_mode = 2
+
+[node name="SFXSlider" type="HSlider" parent="MenuLayer/OptionsMenu/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.43
+
+[node name="Label" type="Label" parent="MenuLayer/OptionsMenu/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+text = "SFX"
+
+[node name="FPSCounter" type="Label" parent="MenuLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("2_m6wcs")
+
+[connection signal="pressed" from="MenuLayer/MainMenu/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MenuLayer/MainMenu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MenuLayer/LevelPauseMenu/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MenuLayer/LevelPauseMenu/VBoxContainer/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]
+[connection signal="pressed" from="MenuLayer/LevelPauseMenu/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MenuLayer/OptionsMenu/VBoxContainer/Back" to="." method="_on_back_pressed"]
