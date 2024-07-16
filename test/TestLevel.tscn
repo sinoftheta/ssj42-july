@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cokf26lqwg16h"]
+
+[ext_resource type="PackedScene" uid="uid://hmnsbdhdlsyv" path="res://entities/Player.tscn" id="1_f46bj"]
+[ext_resource type="Texture2D" uid="uid://ct3s8s4uqhqvb" path="res://icon.png" id="2_7dm61"]
+[ext_resource type="PackedScene" uid="uid://bn2fm0w78epdb" path="res://entities/Weapon.tscn" id="3_scy1c"]
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_f46bj")]
+position = Vector2(132, 111)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(344, 199)
+texture = ExtResource("2_7dm61")
+
+[node name="Weapon" parent="." instance=ExtResource("3_scy1c")]
+position = Vector2(291, 82)
