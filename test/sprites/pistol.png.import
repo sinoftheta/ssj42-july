@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddgkbkt87cg04"
-path="res://.godot/imported/green_character.png-8d30f311d90751b74d76d928e3fd086b.ctex"
+uid="uid://7ekiechih8m8"
+path="res://.godot/imported/pistol.png-96e76d09815d6afc992c6a1e3f0511ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://test/green_character.png"
-dest_files=["res://.godot/imported/green_character.png-8d30f311d90751b74d76d928e3fd086b.ctex"]
+source_file="res://test/sprites/pistol.png"
+dest_files=["res://.godot/imported/pistol.png-96e76d09815d6afc992c6a1e3f0511ea.ctex"]
 
 [params]
 

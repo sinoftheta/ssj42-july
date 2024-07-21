@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8uitak5ccums"
-path="res://.godot/imported/red_character.png-abbd616375667672b1721d1b18c7e36e.ctex"
+uid="uid://brs7tmia7c4c1"
+path="res://.godot/imported/cliff_wall_3_vertical.png-a3c7dd052fd3338f603001547a5c70a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://test/red_character.png"
-dest_files=["res://.godot/imported/red_character.png-abbd616375667672b1721d1b18c7e36e.ctex"]
+source_file="res://texture/cliff_wall_3_vertical.png"
+dest_files=["res://.godot/imported/cliff_wall_3_vertical.png-a3c7dd052fd3338f603001547a5c70a6.ctex"]
 
 [params]
 

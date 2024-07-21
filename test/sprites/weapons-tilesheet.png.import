@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e83tln8djbv3"
-path="res://.godot/imported/green_hand.png-1c45e445c7d38ecbf357b8d4a96f7fb1.ctex"
+uid="uid://dfjw18lfgnb72"
+path="res://.godot/imported/weapons-tilesheet.png-d0030a9c178abe331b5594d164d05db7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://test/green_hand.png"
-dest_files=["res://.godot/imported/green_hand.png-1c45e445c7d38ecbf357b8d4a96f7fb1.ctex"]
+source_file="res://test/sprites/weapons-tilesheet.png"
+dest_files=["res://.godot/imported/weapons-tilesheet.png-d0030a9c178abe331b5594d164d05db7.ctex"]
 
 [params]
 

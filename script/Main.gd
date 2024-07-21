@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var game_scene: PackedScene
+
 ################################################################################
 ## MENU LOGIC
 ################################################################################
@@ -29,8 +31,9 @@ func push_menu(menu:Menu, level:int = 0) -> void:
 	match menu:
 		Menu.gameplay:
 			pass
+			$Level.add_child(game_scene.instantiate())
 		_:
-			pass
+			$Level.remove_child($Level.get_child(0))
 
 	hide_menu(current_menu())
 	menu_history.push_back(menu)
@@ -73,6 +76,9 @@ func _on_return_to_menu_pressed() -> void:
 	#editor.clear_level_data()
 	## pop TWO menus in order to return to the menu before the gameplay
 	pop_menu(2)
+
+func _on_new_game_button_down():
+	push_menu(Menu.gameplay)
 
 ################################################################################
 ## MENU DATA
@@ -117,6 +123,9 @@ enum Menu {
 		"pause_engine": true
 	},
 }
+
+
+
 
 
 

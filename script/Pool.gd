@@ -16,7 +16,6 @@ func get_new() -> Node:
 	if node.has_method("init"):
 		node.init()
 	active[node.get_instance_id()] = node
-	print(active.size())
 	return node
 
 func del(node: Node):

@@ -1,11 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://7owrl0xxj5qk"]
 
 [ext_resource type="Script" path="res://script/Main.gd" id="1_t32cm"]
-[ext_resource type="Script" path="res://script/FPSCounter.gd" id="2_m6wcs"]
+[ext_resource type="PackedScene" uid="uid://cokf26lqwg16h" path="res://test/TestLevel.tscn" id="2_yvkkp"]
 
 [node name="Main" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_t32cm")
+game_scene = ExtResource("2_yvkkp")
 
 [node name="Level" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -64,11 +65,6 @@ text = "SSJ24-July"
 [node name="NewGame" type="Button" parent="MenuLayer/MainMenu/VBoxContainer"]
 layout_mode = 2
 text = "New Game"
-
-[node name="Continue" type="Button" parent="MenuLayer/MainMenu/VBoxContainer"]
-visible = false
-layout_mode = 2
-text = "Continue"
 
 [node name="Options" type="Button" parent="MenuLayer/MainMenu/VBoxContainer"]
 layout_mode = 2
@@ -185,11 +181,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
 text = "SFX"
 
-[node name="FPSCounter" type="Label" parent="MenuLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
-script = ExtResource("2_m6wcs")
-
+[connection signal="button_down" from="MenuLayer/MainMenu/VBoxContainer/NewGame" to="." method="_on_new_game_button_down"]
 [connection signal="pressed" from="MenuLayer/MainMenu/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MenuLayer/MainMenu/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="MenuLayer/LevelPauseMenu/VBoxContainer/Back" to="." method="_on_back_pressed"]

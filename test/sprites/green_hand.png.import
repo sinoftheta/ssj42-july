@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://big51wmjwly5g"
-path="res://.godot/imported/weapon_arrow.png-a87f8524b64a3a25bfd52f5f343a9e21.ctex"
+uid="uid://e83tln8djbv3"
+path="res://.godot/imported/green_hand.png-d6d52ecfc45fad0cbe52941c76c2ae05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://test/weapon_arrow.png"
-dest_files=["res://.godot/imported/weapon_arrow.png-a87f8524b64a3a25bfd52f5f343a9e21.ctex"]
+source_file="res://test/sprites/green_hand.png"
+dest_files=["res://.godot/imported/green_hand.png-d6d52ecfc45fad0cbe52941c76c2ae05.ctex"]
 
 [params]
 

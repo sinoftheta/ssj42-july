@@ -12,7 +12,7 @@ func to_coords(key: String) -> Array[int]:
 	return [int(arr[0]), int(arr[1])]
 
 func add_entry(dict: Dictionary, x: int, y: int, type: String):
-	var obj = {"x":x, "y":y, "type": type}
+	var obj = {"x":x, "y":y, "type": type, "doors": []}
 	var key = to_key(x, y)
 	if dict.has(key):
 		printerr("duplicate entry: " + key)
@@ -33,7 +33,7 @@ func get_adj(x: int, y: int) -> Array[String]:
 	return res
 
 func get_neighbors(dict: Dictionary, x: int, y: int) -> Array[String]:
-	var res := []
+	var res: Array[String]= []
 	var key := ""
 	key = to_key(x+1,y)
 	if dict.has(key):
@@ -75,7 +75,17 @@ func _init(size: int):
 			else:
 				var coord = to_coords(n)
 				add_entry(open, coord[0], coord[1], "empty")
-	
+	for entry in closed.values():
+		var neig := get_neighbors(closed, entry["x"], entry["y"])
+		if len(neig) == 1:
+			entry["type"] = "special"
+		var adj = get_adj(entry["x"], entry["y"])
+		var doors: Array[int] = []
+		for idx in range(4):
+			var key = adj[idx]
+			if closed.has(key):
+				doors.push_back(idx)
+		entry["doors"] = doors
 	# while map is under a given size
 	# get a random room from open
 	# add it to closed
