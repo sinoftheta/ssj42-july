@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://bh3x7xvlcysx"]
+
+[ext_resource type="Script" path="res://script/Weapon.gd" id="1_hbs7u"]
+[ext_resource type="Texture2D" uid="uid://cskyvgp254tmj" path="res://test/sprites/shotgun.png" id="2_wua5x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlk65"]
+atlas = ExtResource("2_wua5x")
+region = Rect2(0, 0, 28, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d5a7o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlk65")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q316w"]
+size = Vector2(28, 8)
+
+[node name="Shotgun" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_hbs7u")
+max_ammo = 24
+fire_cooldown = 0.5
+bullet_count = 3
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(9, 0)
+sprite_frames = SubResource("SpriteFrames_d5a7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9, 0)
+shape = SubResource("RectangleShape2D_q316w")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

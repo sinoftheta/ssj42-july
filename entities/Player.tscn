@@ -1,0 +1,80 @@
+[gd_scene load_steps=12 format=3 uid="uid://hmnsbdhdlsyv"]
+
+[ext_resource type="Script" path="res://script/Player.gd" id="1_l153a"]
+[ext_resource type="Texture2D" uid="uid://ddgkbkt87cg04" path="res://test/sprites/green_character.png" id="2_6ej0b"]
+[ext_resource type="PackedScene" uid="uid://28m8cvu16ih2" path="res://entities/Bullet.tscn" id="2_crxhq"]
+[ext_resource type="PackedScene" uid="uid://h5fy8mtky765" path="res://entities/weapons/Pistol.tscn" id="3_hymho"]
+[ext_resource type="Texture2D" uid="uid://b8uitak5ccums" path="res://test/sprites/red_character.png" id="4_uhav1"]
+[ext_resource type="Texture2D" uid="uid://twljv3gvlqv1" path="res://test/sprites/yellow_character.png" id="5_kn6rb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iu4fq"]
+radius = 11.0454
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl5pe"]
+atlas = ExtResource("2_6ej0b")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_moqoj"]
+atlas = ExtResource("4_uhav1")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3t2u"]
+atlas = ExtResource("5_kn6rb")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nl0yc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jl5pe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_moqoj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3t2u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_l153a")
+bullet_scene = ExtResource("2_crxhq")
+
+[node name="Hull" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_iu4fq")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Hud" type="Control" parent="Camera2D"]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Camera2D/Hud"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Life: 10/10
+Ammo: -"
+
+[node name="Arm" type="Node2D" parent="."]
+
+[node name="Hand" type="Node2D" parent="Arm"]
+texture_filter = 1
+position = Vector2(16, 0)
+
+[node name="Pistol" parent="Arm/Hand" instance=ExtResource("3_hymho")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_nl0yc")

@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://7ew2mne5iu70"]
+
+[ext_resource type="Script" path="res://script/Weapon.gd" id="1_gemd0"]
+[ext_resource type="Texture2D" uid="uid://dqtlnh6lipqwf" path="res://test/sprites/smg.png" id="2_84pyp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18vuh"]
+atlas = ExtResource("2_84pyp")
+region = Rect2(0, 0, 26, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d5a7o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18vuh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q316w"]
+size = Vector2(26, 10)
+
+[node name="Smg" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_gemd0")
+max_ammo = 60
+fire_cooldown = 0.1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(7, 0)
+sprite_frames = SubResource("SpriteFrames_d5a7o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(7, 0)
+shape = SubResource("RectangleShape2D_q316w")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,49 @@
+[gd_scene load_steps=11 format=3 uid="uid://cokf26lqwg16h"]
+
+[ext_resource type="Script" path="res://test/TestLevel.gd" id="1_cy8l8"]
+[ext_resource type="PackedScene" uid="uid://hmnsbdhdlsyv" path="res://entities/Player.tscn" id="1_f46bj"]
+[ext_resource type="Texture2D" uid="uid://ct3s8s4uqhqvb" path="res://icon.png" id="2_7dm61"]
+[ext_resource type="Texture2D" uid="uid://bgnadkpyexuxy" path="res://texture/cliff_wall_3.png" id="5_hr2w6"]
+[ext_resource type="Texture2D" uid="uid://bxpnlx65efoyk" path="res://texture/grass1.png" id="6_p3gsp"]
+[ext_resource type="PackedScene" uid="uid://bh3x7xvlcysx" path="res://entities/weapons/Shotgun.tscn" id="7_5jer2"]
+[ext_resource type="PackedScene" uid="uid://7ew2mne5iu70" path="res://entities/weapons/Smg.tscn" id="7_iipjc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3b1vt"]
+texture = ExtResource("5_hr2w6")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5idsf"]
+texture = ExtResource("6_p3gsp")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_erclm"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_3b1vt")
+sources/1 = SubResource("TileSetAtlasSource_5idsf")
+
+[node name="TestLevel" type="Node2D"]
+script = ExtResource("1_cy8l8")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_erclm")
+format = 2
+
+[node name="Player" parent="." instance=ExtResource("1_f46bj")]
+position = Vector2(132, 111)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(344, 199)
+texture = ExtResource("2_7dm61")
+
+[node name="Shotgun" parent="." instance=ExtResource("7_5jer2")]
+position = Vector2(206, 132)
+
+[node name="Smg" parent="." instance=ExtResource("7_iipjc")]
+position = Vector2(164, 152)
